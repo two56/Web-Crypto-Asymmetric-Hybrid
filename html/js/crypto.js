@@ -42,9 +42,9 @@ async function generateRSA() {
 		pemString += string.substring(0, 64) + '\n';
 		string = string.substring(64);
 	}
-	pemString += '-----END PUBLIC KEY-----'; 
-	HttpRequest('https://localhost:8443', {method: 'POST', response: 'json'}, pemString);
+	pemString += '-----END PUBLIC KEY-----';
 	console.log('PUBLIC PEM:', pemString);
+	await HttpRequest('https://localhost:8443', {method: 'POST', response: 'json'}, pemString);
 }
 
 function extractFromByteArray(array) {
